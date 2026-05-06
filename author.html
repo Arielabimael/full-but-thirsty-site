@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About the Author | Full but Thirsty</title>
+    <meta
+      name="description"
+      content="Meet the voice behind Full but Thirsty. Learn what the writing covers, who it's for, and join the weekly newsletter for practical insights."
+    />
+    <link rel="canonical" href="https://fullbutthirsty.com/author" />
+    <meta property="og:title" content="About the Author | Full but Thirsty" />
+    <meta
+      property="og:description"
+      content="Practical ideas on decision-making, work, and life. Learn about the author and join the newsletter."
+    />
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content="https://fullbutthirsty.com/author" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="tracking.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Full but Thirsty Author",
+        "url": "https://fullbutthirsty.com/author",
+        "description": "Author of practical essays on better decisions, work, and life.",
+        "knowsAbout": ["Decision-making", "Productivity", "Personal growth"],
+        "sameAs": []
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="/">Full but Thirsty</a>
+      <nav>
+        <a class="active" href="/author.html" aria-current="page">Author</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="hero author-hero">
+        <p class="eyebrow">About the Author</p>
+        <h1>Helping ambitious readers turn ideas into action.</h1>
+        <p>
+          I write for people who want better outcomes at work and in life
+          without hype, jargon, or empty productivity tricks.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#newsletter" data-track="primary_cta">Get weekly insights</a>
+          <a class="btn btn-secondary" href="#popular-essays" data-track="secondary_cta">Read top essays</a>
+        </div>
+      </section>
+
+      <section class="section" id="who-it-is-for">
+        <h2>Who this is for</h2>
+        <ul class="checklist">
+          <li>Professionals who want sharper decision-making.</li>
+          <li>Creators building consistent output and sustainable systems.</li>
+          <li>Lifelong learners who want practical takeaways they can use today.</li>
+        </ul>
+      </section>
+
+      <section class="section" id="what-youll-get">
+        <h2>What you'll get from this writing</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Clear frameworks</h3>
+            <p>Simple models to make better choices under pressure.</p>
+          </article>
+          <article class="card">
+            <h3>Actionable essays</h3>
+            <p>Each piece ends with practical next steps, not abstract advice.</p>
+          </article>
+          <article class="card">
+            <h3>Honest perspective</h3>
+            <p>Nuanced thinking without clickbait promises or fake urgency.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="popular-essays">
+        <h2>Start here: popular essays</h2>
+        <div class="essay-list">
+          <a href="#" class="essay-link" data-track="essay_click">How to Make Better Decisions with Incomplete Information</a>
+          <a href="#" class="essay-link" data-track="essay_click">The Weekly Review Habit That Actually Sticks</a>
+          <a href="#" class="essay-link" data-track="essay_click">A Practical System for Finishing What You Start</a>
+        </div>
+      </section>
+
+      <section class="section newsletter" id="newsletter">
+        <h2>Get one practical insight every week</h2>
+        <p>
+          Join readers who want concise, useful writing they can apply in under
+          10 minutes.
+        </p>
+        <form id="lead-capture" class="lead-form" novalidate>
+          <label for="email" class="sr-only">Email address</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            required
+            autocomplete="email"
+          />
+          <button type="submit" class="btn btn-primary" data-track="newsletter_submit">
+            Subscribe for weekly insights
+          </button>
+        </form>
+        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Full but Thirsty</p>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+      const form = document.getElementById('lead-capture');
+      const message = document.getElementById('form-message');
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const emailInput = form.elements.email;
+
+        if (!emailInput.value || !emailInput.checkValidity()) {
+          message.textContent = 'Please enter a valid email address.';
+          message.classList.add('error');
+          return;
+        }
+
+        message.textContent = 'Thanks! You are on the list.';
+        message.classList.remove('error');
+        form.reset();
+
+        if (window.fullButThirstyTrack) {
+          window.fullButThirstyTrack('lead_capture_success', {
+            page: 'author',
+            formId: 'lead-capture'
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
