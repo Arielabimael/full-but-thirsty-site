@@ -15,7 +15,7 @@ From repository root:
 
 ```bash
 python3 -m http.server 8000 --directory site
-```
+``` 
 
 Then open `http://localhost:8000`.
 
